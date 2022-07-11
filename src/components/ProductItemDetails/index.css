@@ -1,0 +1,147 @@
+/* Write your CSS here */
+.product-item-details-container {
+  display: flex;
+  flex-direction: column;
+}
+.product-details-container {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  height: 75vh;
+  margin: 40px;
+}
+
+.product-image-style {
+  height: 100%;
+  width: 40%;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+
+.product-details-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.product-title {
+  font-size: 40px;
+  font-family: 'Consolas';
+  margin-top: 0;
+}
+
+.product-price {
+  font-size: 25px;
+  font-family: 'Consolas';
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.rating-review-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.rating-star-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #3b82f6;
+  max-width: 100%;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.rating {
+  font-family: 'Consolas';
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.rating-star {
+  height: 25px;
+  width: 25px;
+  margin-top: 3px;
+  margin-bottom: 0;
+}
+
+.review {
+  font-family: 'Consolas';
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+.description {
+  font-family: 'Consolas';
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.availability {
+  font-family: 'Consolas';
+  font-size: 15px;
+  font-weight: 800;
+  margin-top: 0;
+}
+
+.available-status {
+  font-family: 'Consolas';
+  font-size: 15px;
+  color: #616e7c;
+}
+
+.brand {
+  font-family: 'Consolas';
+  font-size: 15px;
+  font-weight: 800;
+  margin-top: 0;
+  color: #12022f;
+}
+
+.brand-name {
+  font-family: 'Consolas';
+  font-size: 15px;
+  color: #616e7c;
+}
+
+.separator {
+  border: solid 1px #616e7c;
+  width: 100%;
+}
+
+.failure-view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-image {
+  height: 180px;
+  width: 180px;
+}
+
+.not-found-text {
+  font-size: 30px;
+  font-family: 'Consolas';
+  margin-top: 0;
+}
+
+.btn-continue-shopping {
+  color: #ffffff;
+  border-radius: 10px;
+  background-color: #3b82f6;
+  padding: 5px;
+  width: 120px;
+}
