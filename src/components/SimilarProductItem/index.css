@@ -1,1 +1,45 @@
-/* Write your CSS here */
+.similar-product-img {
+  height: 70vw;
+  width: 100%;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .similar-product-img {
+    height: 30vw;
+    width: 30vw;
+    border-radius: 10px;
+  }
+}
+
+.similar-product-container {
+  margin-right: 20px;
+  width: 280px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 16px;
+  font-family: 'Consolas';
+  font-weight: 800;
+  margin-top: 3px;
+}
+
+.brand {
+  color: #616e7c;
+  font-family: 'Consolas';
+  font-size: 18px;
+}
+
+.price {
+  font-size: 16px;
+  font-family: 'Consolas';
+  font-weight: 800;
+  margin-top: 20px;
+  margin-right: 70px;
+}
+
+.price-rating-container {
+  display: flex;
+  flex-direction: row;
+}

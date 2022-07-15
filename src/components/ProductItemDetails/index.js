@@ -1,7 +1,9 @@
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
-import {Loader} from 'react-loader-spinner'
+import {BsPlusSquare, BsDashSquare} from 'react-icons/bs'
+import Loader from 'react-loader-spinner'
+import SimilarProductItem from '../SimilarProductItem'
 import Header from '../Header'
 
 import './index.css'
@@ -18,6 +20,7 @@ class ProductItemDetails extends Component {
     productData: [],
     similarProducts: [],
     apiStatus: apiStatusConstants.initial,
+    quantity: 1,
   }
 
   componentDidMount() {
@@ -75,8 +78,38 @@ class ProductItemDetails extends Component {
     }
   }
 
+  onClickIncreaseQuantity = () => {
+    this.setState(prevState => ({
+      quantity: prevState.quantity + 1,
+    }))
+  }
+
+  onClickDecreaseQuantity = () => {
+    const {quantity} = this.state
+    if (quantity > 1) {
+      this.setState(prevState => ({quantity: prevState.quantity - 1}))
+    }
+  }
+
+  renderSimilarProductDetails = () => {
+    const {similarProducts} = this.state
+    return (
+      <div className="similar-products-container">
+        <h1 className="similar-products-heading">Similar Products</h1>
+        <ul className="similar-products-list">
+          {similarProducts.map(eachSimilarProduct => (
+            <SimilarProductItem
+              productDetails={eachSimilarProduct}
+              key={eachSimilarProduct.title}
+            />
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
   renderProductDetailsView = () => {
-    const {productData} = this.state
+    const {productData, quantity} = this.state
 
     const {
       availability,
@@ -91,7 +124,7 @@ class ProductItemDetails extends Component {
 
     return (
       <div className="product-details-container">
-        <img src={imageUrl} className="product-image-style" alt={title} />
+        <img src={imageUrl} className="product-image-style" alt="product" />
         <div className="product-details-content">
           <h1 className="product-title">{title}</h1>
           <p className="product-price">Rs {price}/- </p>
@@ -109,13 +142,35 @@ class ProductItemDetails extends Component {
           <p className="description">{description}</p>
           <p className="availability">
             Available:
-            <span className="available-status"> {availability}</span>
+            <p className="available-status"> {availability}</p>
           </p>
           <p className="brand">
             Brand:
-            <span className="brand-name"> {brand}</span>
+            <p className="brand-name"> {brand}</p>
           </p>
           <hr className="separator" />
+          <div className="quantity-container">
+            <button
+              type="button"
+              className="btn-quantity"
+              onClick={this.onClickDecreaseQuantity}
+              testid="minus"
+            >
+              <BsDashSquare className="icons-quantity" />
+            </button>
+            <p className="quantity">{quantity}</p>
+            <button
+              type="button"
+              className="btn-quantity"
+              onClick={this.onClickIncreaseQuantity}
+              testid="plus"
+            >
+              <BsPlusSquare className="icons-quantity" />
+            </button>
+          </div>
+          <button type="button" className="btn-add-cart">
+            ADD TO CART
+          </button>
         </div>
       </div>
     )
@@ -126,7 +181,7 @@ class ProductItemDetails extends Component {
       <img
         src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-error-view-img.png"
         className="error-image"
-        alt="error view"
+        alt="failure view"
       />
       <h1 className="not-found-text">Product Not Found</h1>
       <Link to="/products">
@@ -164,6 +219,7 @@ class ProductItemDetails extends Component {
         <Header />
         <div className="product-item-details-container">
           {this.renderProductDetails()}
+          {this.renderSimilarProductDetails()}
         </div>
       </>
     )
